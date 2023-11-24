@@ -6,12 +6,13 @@ from Assests.Data_Scraping import data_scrapper
 
 app = Flask(__name__)
 
+nba_data = pd.read_csv('./NBA_2024_per_game.csv')
 
 def scheduled_task():
     try:
         nba_data = data_scrapper()
     except:
-        nba_data = pd.read_csv('./NBA_2024_per_game.csv')
+        pass
         
 
 # Initialize Scheduler
