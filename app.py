@@ -6,7 +6,7 @@ from Assests.Data_Scraping import data_scrapper
 
 app = Flask(__name__)
 
-'''
+
 def scheduled_task():
     try:
         nba_data = data_scrapper()
@@ -18,8 +18,8 @@ def scheduled_task():
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=scheduled_task, trigger="interval", days=1)
 scheduler.start()
-'''
-nba_data = pd.read_csv('./NBA_2024_per_game.csv')
+
+#nba_data = pd.read_csv('./NBA_2024_per_game.csv')
 
 @app.route('/')
 def home():
