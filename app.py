@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 
 def scheduled_task():
-    # Your data scraping function here
     try:
         nba_data = data_scrapper()
     except:
