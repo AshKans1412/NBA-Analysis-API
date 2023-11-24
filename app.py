@@ -1,8 +1,23 @@
 from flask import Flask, jsonify
 import pandas as pd
+from apscheduler.schedulers.background import BackgroundScheduler
+from Assests.Data_Scraping import data_scrapper
+
 app = Flask(__name__)
 
-nba_data = pd.read_csv('./NBA_2024_per_game.csv')
+
+def scheduled_task():
+    # Your data scraping function here
+    try:
+        nba_data = data_scrapper()
+    except:
+        nba_data = pd.read_csv('./NBA_2024_per_game.csv')
+        
+
+# Initialize Scheduler
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=scheduled_task, trigger="interval", days=1)
+scheduler.start()
 
 
 @app.route('/')
