@@ -4,4 +4,3 @@ APScheduler
 requests
 beautifulsoup4
 gunicorn
-os
