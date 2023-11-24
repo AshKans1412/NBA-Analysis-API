@@ -11,7 +11,7 @@ This repository, [NBA-Analysis-API](https://github.com/AshKans1412/NBA-Analysis-
 
 ## Accessing the API
 
-The API is hosted on Heroku and can be accessed at the following base URL: `https://ash-nba-api.herokuapp.com/`
+The API is hosted on Heroku and can be accessed at the following base URL: `https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/`
 
 ### API Endpoints
 
@@ -25,7 +25,7 @@ The API is hosted on Heroku and can be accessed at the following base URL: `http
 To fetch details of a specific player:
 
 ```
-GET https://ash-nba-api.herokuapp.com/players/LeBron James
+GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/players/LeBron James
 ```
 
 ## Local Setup
