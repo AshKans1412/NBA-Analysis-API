@@ -65,7 +65,7 @@ def predict_winner():
     team2 = request.args.get('team2')
 
     # Your prediction logic here
-    winner = predict_2(team1, team2, model_2, label_encoder, scaler, data)
+    winner = predict_2(team1, team2, model, label_encoder, scaler, data)
     
     return jsonify({"Predicted Winner": winner})
 
