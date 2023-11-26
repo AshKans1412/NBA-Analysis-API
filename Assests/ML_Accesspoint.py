@@ -8,8 +8,8 @@ scaler_file = "Models/scaler.sav"
 svm_file = "Models/model.sav"
 
 
-model = pickle.load(open(svm_file,"rb"))
-scaler = pickle.load(open(scaler_file,"rb"))
+#model = pickle.load(open(svm_file,"rb"))
+#scaler = pickle.load(open(scaler_file,"rb"))
 
 
 def predict_2(team1, team2, model, label_encoder, scaler, data):    
