@@ -2,7 +2,13 @@ from flask import Flask, jsonify
 import os
 import pandas as pd
 from apscheduler.schedulers.background import BackgroundScheduler
+from Assests.ML_Accesspoint import predict_2
 from Assests.Data_Scraping import data_scrapper
+
+scaler_file = "./Assests/Models/scaler.sav"
+svm_file = "./Assests/Models/model.sav"
+model = pickle.load(open(svm_file,"rb"))
+scaler = pickle.load(open(scaler_file,"rb"))
 
 app = Flask(__name__)
 
@@ -50,6 +56,17 @@ def get_dataset():
     
     # Return the JSON response
     return jsonify(data_json)
+
+
+@app.route('/predict', methods=['GET'])
+def predict_winner():
+    team1 = request.args.get('team1')
+    team2 = request.args.get('team2')
+
+    # Your prediction logic here
+    winner = predict_2(team1, team2, model_2, label_encoder, scaler, data)
+    
+    return jsonify({"Predicted Winner": winner})
 
 
 
