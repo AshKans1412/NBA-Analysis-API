@@ -93,9 +93,10 @@ def predict_winner():
 
 @app.route('/get_images/<string:name>', methods=['GET'])
 def get_player_images(name):
-    player_data = images_data[images_data['API_Names'] == name].to_dict(orient='records')
+    player_data = images_data[images_data['API_Names'] == name].playerid.values[0]
+    xxx = "https://raw.githubusercontent.com/AshKans1412/NBA-Analysis-API/main/Assests/img/" + str(player_data) + ".png"
     if player_data:
-        return jsonify(player_data)
+        return jsonify({"image": xxx })
     else:
         return jsonify({'message': 'Player not found'}), 404
 
