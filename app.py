@@ -10,14 +10,17 @@ scaler_file = "Assests/Models/scaler.sav"
 svm_file = "Assests/Models/model.sav"
 prime_data = "Assests/Datasets/NBA_2024_per_game.csv"
 data_predict = "Assests/Datasets/data.csv"
+images= "Assests/Datasets/images_data.csv"
 
 model = pickle.load(open(svm_file,"rb"))
 scaler = pickle.load(open(scaler_file,"rb"))
+
 
 app = Flask(__name__)
 
 nba_data = pd.read_csv(prime_data)
 data = pd.read_csv(data_predict)
+images_data = pd.read_csv(images)
 
 def scheduled_task():
     try:
@@ -47,12 +50,26 @@ def get_players():
 
 @app.route('/players/<string:name>', methods=['GET'])
 def get_player_details(name):
-    player_data = nba_data[nba_data['Player'] == name].to_dict(orient='records')
+    #player_data = nba_data[nba_data['Player'] == name].to_dict(orient='records')
+
+    '''
     if player_data:
         return jsonify(player_data)
     else:
         return jsonify({'message': 'Player not found'}), 404
+    '''
+    player_nba_data = nba_data[nba_data['Player'] == name].to_dict(orient='records')
+    player_images_data = images_data[images_data['API_Names'] == name].to_dict(orient='records')
 
+    if player_nba_data and player_images_data:
+        combined_data = {**player_nba_data[0], **player_images_data[0]}  # Combine the data from both datasets
+        return jsonify(combined_data)
+    elif player_nba_data:
+        return jsonify(player_nba_data)
+    elif player_images_data:
+        return jsonify(player_images_data)
+    else:
+        return jsonify({'message': 'Player not found'}), 404
 
 @app.route('/dataset', methods=['GET'])
 def get_dataset():
@@ -74,7 +91,13 @@ def predict_winner():
     return jsonify({"Predicted Winner": winner})
     #return jsonify({team1: team2})
 
-
+@app.route('/get_images/<string:name>', methods=['GET'])
+def get_player_images(name):
+    player_data = images_data[images_data['API_Names'] == name].to_dict(orient='records')
+    if player_data:
+        return jsonify(player_data)
+    else:
+        return jsonify({'message': 'Player not found'}), 404
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
