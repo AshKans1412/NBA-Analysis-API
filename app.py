@@ -4,6 +4,7 @@ import pandas as pd
 from apscheduler.schedulers.background import BackgroundScheduler
 from Assests.ML_Accesspoint import predict_2
 from Assests.Data_Scraping import data_scrapper
+import pickle 
 
 scaler_file = "Assests/Models/scaler.sav"
 svm_file = "Assests/Models/model.sav"
