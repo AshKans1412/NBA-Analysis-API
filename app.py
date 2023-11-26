@@ -5,8 +5,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from Assests.ML_Accesspoint import predict_2
 from Assests.Data_Scraping import data_scrapper
 
-scaler_file = "./Assests/Models/scaler.sav"
-svm_file = "./Assests/Models/model.sav"
+scaler_file = "Assests/Models/scaler.sav"
+svm_file = "Assests/Models/model.sav"
 model = pickle.load(open(svm_file,"rb"))
 scaler = pickle.load(open(scaler_file,"rb"))
 
