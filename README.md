@@ -19,6 +19,7 @@ The API is hosted on Heroku and can be accessed at the following base URL: `http
 - `/players` - Retrieves a list of all NBA players in the dataset.
 - `/players/<string:name>` - Provides detailed statistics for a specified player.
 - `/dataset` - Returns the entire dataset in JSON format.
+- `/predict` - Returns which teams wins.
 
 ### Example Request
 
