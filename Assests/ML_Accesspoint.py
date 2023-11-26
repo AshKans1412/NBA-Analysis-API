@@ -40,7 +40,7 @@ def predict_2(team1, team2, model, label_encoder, scaler, data):
     prediction = model.predict(feature_vector_scaled)[0]
     winner = team1 if prediction else team2
 
-    return f"Predicted winner for the 2022 season between {team1} and {team2}: {winner}" 
+    return winner
 
      
     
