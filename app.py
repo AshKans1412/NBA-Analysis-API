@@ -8,12 +8,16 @@ import pickle
 
 scaler_file = "Assests/Models/scaler.sav"
 svm_file = "Assests/Models/model.sav"
+prime_data = "Assests/Datasets/NBA_2024_per_game.csv"
+data_predict = "Assests/Datasets/data.csv"
+
 model = pickle.load(open(svm_file,"rb"))
 scaler = pickle.load(open(scaler_file,"rb"))
 
 app = Flask(__name__)
 
-nba_data = pd.read_csv('./NBA_2024_per_game.csv')
+nba_data = pd.read_csv(prime_data)
+data = pd.read_csv(data_predict)
 
 def scheduled_task():
     try:
@@ -68,6 +72,7 @@ def predict_winner():
     winner = predict_2(team1, team2, model, scaler, data)
     
     return jsonify({"Predicted Winner": winner})
+    #return jsonify({team1: team2})
 
 
 

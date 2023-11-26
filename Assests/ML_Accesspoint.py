@@ -18,21 +18,21 @@ def predict_2(team1, team2, model, scaler, data):
     team1_encoded = mapping[team1]
     team2_encoded = mapping[team2]
     
-    recent_season_data = data[data['season'] == 2022]
-
+    
     select_cols = ['team_encoded', 'team_opp_encoded', 'season', 'fg%', '3p%', 'ft%', 
                               'orb', 'drb', 'orb%', 'drb%', 'ft%_max', 'fg%_max', '3p%_max', 
                               'fg%_opp', '3p%_opp', 'ft%_opp', 'orb_opp', 'trb_opp', 'orb%_opp', 
                               'drb%_opp', 'ft%_max_opp', 'fg%_max_opp', '3p%_max_opp']
+
     home = ["season",'team_encoded','fg%','3p%','ft%','orb','drb','orb%','drb%','ft%_max','fg%_max','3p%_max']
     opp = ['team_opp_encoded','fg%_opp','3p%_opp','ft%_opp','orb_opp','trb_opp','orb%_opp','drb%_opp','ft%_max_opp','fg%_max_opp','3p%_max_opp']
 
-    x = recent_season_data[recent_season_data['team_encoded'] == team1_encoded]
-    y = recent_season_data[recent_season_data['team_opp_encoded'] == team2_encoded]
+    x = data[data['team_encoded'] == team1_encoded]
+    y = data[data['team_opp_encoded'] == team2_encoded]
 
-    x_mean = x.mean().to_dict()
-    y_mean = y.mean().to_dict()
-    temp = (pd.concat([pd.DataFrame([x_mean])[home], pd.DataFrame([y_mean])[opp]],axis = 1))
+    x_mean = x[home].mean().to_dict()
+    y_mean = y[opp].mean().to_dict()
+    temp = (pd.concat([pd.DataFrame([x_mean]), pd.DataFrame([y_mean])],axis = 1))
     temp = temp[select_cols]
     feature_vector_scaled = scaler.transform(temp)
 
