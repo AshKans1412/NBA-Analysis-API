@@ -5,7 +5,7 @@ import pickle
 
 
 scaler_file = "./Models/scaler.sav"
-svm_file = "../Models/model.sav"
+svm_file = "./Models/model.sav"
 
 
 model = pickle.load(open(svm_file,"rb"))
