@@ -29,6 +29,14 @@ To fetch details of a specific player:
 GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/players/LeBron James
 ```
 
+### Example Request for Prediction
+
+To fetch prediction betweem `MIA` & `GSW`: <i>(Considering MIA as Home Team)</i>
+
+```
+GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/predict?team1=MIA&team2=GSW
+```
+
 ## Local Setup
 
 To run the API locally:
