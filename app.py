@@ -26,9 +26,9 @@ def scheduled_task():
     try:
         nba_data = data_scrapper()
     except:
-        bro = "dewfefefref"
+        code = "ceqecercqefrv"
         
-
+bro = "Welcome to the NBA 2024 Stats API!"
 # Initialize Scheduler
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=scheduled_task, trigger="interval", seconds=5)
