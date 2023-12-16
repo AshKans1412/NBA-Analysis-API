@@ -17,6 +17,7 @@ scaler = pickle.load(open(scaler_file,"rb"))
 
 
 app = Flask(__name__)
+bro = "Welcome to the NBA 2024 Stats API!"
 
 nba_data = pd.read_csv(prime_data)
 data = pd.read_csv(data_predict)
@@ -26,9 +27,8 @@ def scheduled_task():
     try:
         nba_data = data_scrapper()
     except:
-        code = "ceqecercqefrv"
+        bro = "ceqecercqefrv"
         
-bro = "Welcome to the NBA 2024 Stats API!"
 # Initialize Scheduler
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=scheduled_task, trigger="interval", seconds=5)
