@@ -26,6 +26,8 @@ images_data = pd.read_csv(images)
 def scheduled_task():
     try:
         nba_data = data_scrapper()
+        bro = "ceqecercqefrv"
+
     except:
         bro = "ceqecercqefrv"
         
