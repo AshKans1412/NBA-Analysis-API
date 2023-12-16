@@ -19,5 +19,6 @@ def data_scrapper():
       data = [cell.get_text() for cell in row.find_all("td")]
       if data:
           rows.append(data)
+  df = pd.DataFrame(rows, columns=headers)
   
   return df 
