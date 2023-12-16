@@ -26,7 +26,7 @@ def scheduled_task():
     try:
         nba_data = data_scrapper()
     except:
-        pass
+        bro = "dewfefefref"
         
 
 # Initialize Scheduler
@@ -38,7 +38,8 @@ scheduler.start()
 
 @app.route('/')
 def home():
-    return "Welcome to the NBA 2024 Stats API!"
+    #return "Welcome to the NBA 2024 Stats API!"
+    return bro
 
 
 
