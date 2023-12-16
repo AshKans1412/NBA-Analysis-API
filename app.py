@@ -33,7 +33,7 @@ def scheduled_task():
         
 # Initialize Scheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=scheduled_task, trigger="interval", seconds=5)
+scheduler.add_job(func=scheduled_task, trigger="interval", days=1)
 scheduler.start()
 
 #nba_data = pd.read_csv('./NBA_2024_per_game.csv')
