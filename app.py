@@ -102,7 +102,7 @@ def get_player_images(name):
     if player_data:
         return jsonify({"image": xxx })
     else:
-        return jsonify({'message': "https://raw.githubusercontent.com/AshKans1412/NBA-Analysis-API/main/Assests/img/default.png"})
+        return jsonify({'image': "https://raw.githubusercontent.com/AshKans1412/NBA-Analysis-API/main/Assests/img/default.png"})
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
