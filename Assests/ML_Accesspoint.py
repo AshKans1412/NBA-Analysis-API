@@ -38,7 +38,7 @@ def predict_2(team1, team2, model, scaler, data):
 
     # Predict outcome
     prediction = model.predict(feature_vector_scaled)[0]
-    winner = team1 if prediction else team2
+    winner = team2 if prediction else team1
 
     return winner
 
