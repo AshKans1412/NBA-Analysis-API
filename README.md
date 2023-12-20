@@ -11,7 +11,7 @@ This repository, [NBA-Analysis-API](https://github.com/AshKans1412/NBA-Analysis-
 
 ## Accessing the API
 
-The API is hosted on Heroku and can be accessed at the following base URL: `https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/`
+The API is hosted on Heroku and can be accessed at the following base URL: `https://nba-api-ash-1-fc1674476d71.herokuapp.com/`
 
 ### API Endpoints
 
@@ -26,7 +26,7 @@ The API is hosted on Heroku and can be accessed at the following base URL: `http
 To fetch details of a specific player:
 
 ```
-GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/players/LeBron James
+GET https://nba-api-ash-1-fc1674476d71.herokuapp.com/players/LeBron James
 ```
 
 ### Example Request for Prediction
@@ -34,7 +34,7 @@ GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/players/LeBron James
 To fetch prediction betweem `MIA` & `GSW`: <i>(Considering MIA as Home Team)</i>
 
 ```
-GET https://ash-nba-api-ea2ef5de0ea1.herokuapp.com/predict?team1=MIA&team2=GSW
+GET https://nba-api-ash-1-fc1674476d71.herokuapp.com/predict?team1=MIA&team2=GSW
 ```
 
 ## Local Setup
